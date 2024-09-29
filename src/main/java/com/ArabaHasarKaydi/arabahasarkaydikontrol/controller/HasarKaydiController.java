@@ -25,4 +25,9 @@ public class HasarKaydiController {
         hasarKaydiService.ekle(hasarKaydiDto);
         return new ResponseEntity<>("Hasar kayıt bilgisi oluşturuldu", HttpStatus.OK);
     }
+        @DeleteMapping("/sil/{id}")
+    public ResponseEntity<String> silme(@PathVariable(value = "id") Long id){
+        hasarKaydiService.silme(id);
+        return new ResponseEntity<>("Hasar kayıt bilgileri silindi",HttpStatus.OK);
+    }
 }
