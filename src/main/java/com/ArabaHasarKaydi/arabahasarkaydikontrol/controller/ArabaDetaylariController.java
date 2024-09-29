@@ -44,4 +44,9 @@ public class ArabaDetaylariController {
         ArabaDetaylari arabaDetaylari =arabaDetaylariServiceİmpl.model(model);
         return new ResponseEntity<>(arabaDetaylari,HttpStatus.OK);
     }
+        @DeleteMapping("/sil/{id}")
+    public ResponseEntity<String> silme(@PathVariable Long id){
+        arabaDetaylariServiceİmpl.aracbilgisilme(id);
+        return new ResponseEntity<>("araç bilgileri silindi",HttpStatus.OK);
+    }
 }
