@@ -38,4 +38,13 @@ public class HasarKaydiServiceİmpl implements HasarKaydiService {
             throw new EntityNotFoundException("Hasar kayıt bilgileri bulunamadı");
         }
     }
+      public String silme(Long id) {
+        Optional<HasarKaydi> hasarKaydi = hasarKaydiRepository.findById(id);
+        if (hasarKaydi.isPresent()) {
+            hasarKaydiRepository.deleteById(id);
+            return "Hasar kayıt bilgileri silinmiştir";
+        } else {
+            throw new EntityNotFoundException("Hasar kayıt bilgileri bulunamadı");
+        }
+    }
 }
